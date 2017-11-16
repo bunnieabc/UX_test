@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:og='http://ogp.me/ns#'>
+<head>
+<title>UX test</title>
+  <meta charset="UTF-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title></title>
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <meta content="" property="og:title">
+  <meta content="" property="og:site_name">
+  <meta content="/img/common/FacebookShare.jpg" property="og:image">
+  <meta content="" property="og:description">
+  
+  
+  <link rel="stylesheet" href="/assets/css/index.css">
+<link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Montserrat|Raleway" rel="stylesheet">
+</head>
+<div class="wrap">
+<video width="320" height="240" controls autoplay>
+  <source src="/assets/video/test-ux-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</div>
+</video>
+<script src="/assets/js/jquery-2.1.4.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<script>
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'start': function() {
+      $('.wrap').css({background: '#000'});
+    }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
+</script>
+</html>
