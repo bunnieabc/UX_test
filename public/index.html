@@ -28,7 +28,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
 <script>
 var vid = document.getElementById("vid");
-
+vid.volume = 1;
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
@@ -37,22 +37,40 @@ if (annyang) {
       $('.wrap').css({background: '#000'});
     },
     'start again': function() {
-      vid.get(0).play();
+      vid.play();
       $('.wrap').css({background: '#000'});
     },
-    'please stop the video': function() {
-      vid.get(0).pause();
+    'stop the video': function() {
+      vid.pause();
       $('.wrap').css({background: '#fff'});
+    },
+
+    'stop': function() {
+      vid.pause();
+      $('.wrap').css({background: '#fff'});
+    },
+    'pause it': function() {
+      vid.pause();
+      $('.wrap').css({background: '#fff'});
+    },
+    'please keep your voice down ': function(){
+      if(vid.volume > 0){
+        vid.volume = vid.volume - 0.3;
+      }
+    },
+    'turn down': function(){
+      if(vid.volume > 0){
+        vid.volume = vid.volume - 0.3;
+      }
+    },
+    'please speak louder': function(){
+      if(vid.volume < 1 ){
+        vid.volume = vid.volume + 0.3;
+      }
     }
+
   };
-  var startVideo = function() {
-    //vid.play();
-    $('.wrap').css({background: '#000'});
-  }
-  var pauseVideo = function() {
-    //vid.pause();
-    $('.wrap').css({background: '#fff'});
-  }
+
   // Add our commands to annyang
   annyang.addCommands(commands);
 
