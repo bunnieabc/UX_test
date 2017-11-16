@@ -32,16 +32,16 @@ var vid = document.getElementById("vid");
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
-    'start video': function() {
+    'start to play': function() {
       vid.play();
       $('.wrap').css({background: '#000'});
     },
     'start again': function() {
-      vid.play();
+      vid.get(0).play();
       $('.wrap').css({background: '#000'});
     },
     'please stop the video': function() {
-      vid.pause();
+      vid.get(0).pause();
       $('.wrap').css({background: '#fff'});
     }
   };
