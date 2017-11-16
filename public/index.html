@@ -18,8 +18,8 @@
 <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Montserrat|Raleway" rel="stylesheet">
 </head>
 <div class="wrap">
-<video width="320" height="240" controls autoplay>
-  <source src="/assets/video/test-ux-video.mp4" type="video/mp4">
+<video id="vid" controls>
+  <source  src="/assets/video/test-ux-video.mp4" type="video/mp4" >
   Your browser does not support the video tag.
 </div>
 </video>
@@ -27,15 +27,32 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
 <script>
+var vid = document.getElementById("vid");
+
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
-    'start': function() {
+    'start video': function() {
+      vid.play();
       $('.wrap').css({background: '#000'});
-      
+    },
+    'start again': function() {
+      vid.play();
+      $('.wrap').css({background: '#000'});
+    },
+    'please stop the video': function() {
+      vid.pause();
+      $('.wrap').css({background: '#fff'});
     }
   };
-
+  var startVideo = function() {
+    //vid.play();
+    $('.wrap').css({background: '#000'});
+  }
+  var pauseVideo = function() {
+    //vid.pause();
+    $('.wrap').css({background: '#fff'});
+  }
   // Add our commands to annyang
   annyang.addCommands(commands);
 
