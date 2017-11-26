@@ -23,10 +23,15 @@
   Your browser does not support the video tag.
 </div>
 </video>
-<audio id="aid" controls autoplay>
+<audio id="intro" controls>
+  <source src="/assets/clip/1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<audio id="aid" controls>
   <source src="/assets/music/2.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<button id ="control">control</button>
 <script src="/assets/js/jquery-2.1.4.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
@@ -34,8 +39,29 @@ Your browser does not support the audio element.
 var vid = document.getElementById("vid");
 //var level = 50;
 
-var aid = document.getElementById("aid");
-aid.volume = 0.1;
+var intro = document.getElementById("intro");
+$("#control").click(function(){
+  intro.play();
+  intro.volume = 1;
+  toggleFullScreen();
+})
+
+function toggleFullScreen() {
+  if (vid.requestFullscreen) {
+    vid.requestFullscreen();
+  } else if (vid.msRequestFullscreen) {
+    vid.msRequestFullscreen();
+  } else if (vid.mozRequestFullScreen) {
+    vid.mozRequestFullScreen();
+  } else if (vid.webkitRequestFullscreen) {
+    vid.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+  }
+
+}
+
+//aid.play();
 vid.volume = 0.1
+
+
 </script>
 </html>
