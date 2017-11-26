@@ -28,9 +28,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
 <script>
 var vid = document.getElementById("vid");
-var level = 50;
-my_media = new Media("/assets/video/test-ux-video.mp4", onSuccess, onError);
-vid.setVolume(level);
+vid.volume = 1;
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
@@ -57,17 +55,17 @@ if (annyang) {
     },
     'please keep your voice down ': function(){
       if(vid.volume > 0){
-        vid.volume = vid.volume - 10;
+        vid.volume = vid.volume - 0.3;
       }
     },
     'turn down': function(){
       if(vid.volume > 0){
-        vid.volume = vid.volume - 10;
+        vid.volume = vid.volume - 0.3;
       }
     },
     'please speak louder': function(){
       if(vid.volume < 1 ){
-        vid.volume = vid.volume + 10;
+        vid.volume = vid.volume + 0.3;
       }
     }
 
