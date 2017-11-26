@@ -17,23 +17,24 @@
   <link rel="stylesheet" href="/assets/css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Montserrat|Raleway" rel="stylesheet">
 </head>
-<div class="wrap">
+<div class="wrap2">
 <video id="vid" controls>
   <source  src="/assets/video/test-ux-video.mp4" type="video/mp4" >
   Your browser does not support the video tag.
 </div>
 </video>
+<audio id="aid" controls autoplay>
+  <source src="/assets/music/2.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 <script src="/assets/js/jquery-2.1.4.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
 <script>
 var vid = document.getElementById("vid");
 //var level = 50;
-my_media = new Media("/assets/video/test-ux-video.mp4", onSuccess, onError);
-my_media.play();
-var level = 50;
 
-my_media.setVolume(level);
-
+var aid = document.getElementById("aid");
+aid.volume = 0.3;
 </script>
 </html>
