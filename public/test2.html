@@ -18,8 +18,9 @@
 <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Montserrat|Raleway" rel="stylesheet">
 </head>
 <div class="wrap2">
+
 <video id="vid" controls>
-  <source  src="/assets/video/test-ux-video.mp4" type="video/mp4" >
+  <source  src="/assets/video/1.mp4" type="video/mp4" >
   Your browser does not support the video tag.
 </div>
 </video>
@@ -31,7 +32,12 @@ Your browser does not support the audio element.
   <source src="/assets/music/2.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
-<button id ="control">control</button>
+<div class="control-row">
+  <button class ="control" id="start">Start</button>
+  <button class ="control" id="pause">Pause</button>
+  <button class ="vol" id="voldown"><-</button>
+  <button class ="vol" id ="volup">-></button>
+</div>
 <script src="/assets/js/jquery-2.1.4.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
@@ -40,11 +46,39 @@ var vid = document.getElementById("vid");
 //var level = 50;
 
 var intro = document.getElementById("intro");
-$("#control").click(function(){
+$("#start").click(function(){
   intro.play();
   intro.volume = 1;
   toggleFullScreen();
 })
+$("#pause").click(function(){
+  intro.pause();
+  intro.volume = 1;
+})
+
+$("#voldown").click(function(){
+  if(intro.volume >= 0.3){
+    intro.volume = intro.volume - 0.3;
+    $("#volup").html("->")
+  }
+  else{
+    $("#voldown").html("mute")
+    $("#volup").html("->")
+  }
+})
+
+$("#volup").click(function(){
+  if(intro.volume <= 0.7){
+    intro.volume = intro.volume + 0.3;
+    $("#voldown").html("<-")
+  }
+  else{
+    $("#volup").html("max")
+    $("#voldown").html("<-")
+  }
+})
+
+
 
 function toggleFullScreen() {
   if (vid.requestFullscreen) {
@@ -56,11 +90,10 @@ function toggleFullScreen() {
   } else if (vid.webkitRequestFullscreen) {
     vid.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
   }
-
 }
 
 //aid.play();
-vid.volume = 0.1
+vid.volume = 0.5
 
 
 </script>

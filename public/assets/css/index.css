@@ -39,3 +39,20 @@ h1, h2, h3, h4 {
   width: 70%;
   height: auto;
 }
+
+.control-row {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 2147483647;
+}
+
+.control-row button {
+  border-radius: 5px;
+  height: 30px;
+  width: 80px;
+  border: none;
+  outline: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFF;
+}
