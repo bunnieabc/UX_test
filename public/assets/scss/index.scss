@@ -71,7 +71,7 @@ h1,h2,h3,h4 {
   }
 }
 
-.question-block, .question-block2 {
+.question-block, .question-block2, .question-block3 {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -100,10 +100,11 @@ h1,h2,h3,h4 {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    padding: 20px;
   }
 
   .button-row {
-    width: 70%;
+    width: 100%;
     display: flex;
     align-items: center;
     -webkit-justify-content: center;

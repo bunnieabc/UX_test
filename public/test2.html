@@ -41,6 +41,11 @@
   Your browser does not support the audio element.
   </audio>
 
+  <audio id="q3" controls>
+    <source src="/assets/clip/q3.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
   <div class="control-row">
     <button class ="control" id="start">Start</button>
     <button class ="control" id="pause">Pause</button>
@@ -60,6 +65,16 @@
   <div class="question-block2">
     <div class="question">
       Would you like to hear about my initial involvement with the anti-slavery movement?
+      <div class="button-row">
+        <button class="b1" id ="yes2">Sure!</button>
+        <button class="b1" id ="no2">No, thanks.</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-block3">
+    <div class="question">
+     Would you like to hear about the Vigilance Committee and the Underground Railroad?
       <div class="button-row">
         <button class="b1" id ="yes2">Sure!</button>
         <button class="b1" id ="no2">No, thanks.</button>
@@ -162,6 +177,14 @@ $("#vid").on("ended", function() {
     $(".question-block2").css({"z-index": "2147483647"})
     $(".question-block2").fadeIn();
   }
+
+  else if(count == 2) {
+    var q3 = document.getElementById("q2");
+    q3.play();
+    // question show up
+    $(".question-block3").css({"z-index": "2147483647"})
+    $(".question-block3").fadeIn();
+  }
   count = count + 1;
 });
 
@@ -175,6 +198,15 @@ $("#yes1").click(function(){
   console.log(document.querySelector("#vid > source").src)
 })
 
+//select "Yes" -> continue the vid3
+$("#yes2").click(function(){
+  $(".question-block2").css("display","none");
+  document.querySelector("#vid > source").src = "/assets/video/3.mp4"
+  
+  document.getElementById("vid").load();
+  document.getElementById("vid").play();
+  console.log(document.querySelector("#vid > source").src)
+})
 
 
 </script>
