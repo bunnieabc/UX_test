@@ -18,9 +18,7 @@
 <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Montserrat|Raleway" rel="stylesheet">
 </head>
 <div class="wrap2">
-  <div class="question-block">
-    
-  </div>
+  
   <video id="vid" controls>
     <source  src="/assets/video/1.mp4" type="video/mp4" >
     Your browser does not support the video tag.
@@ -33,15 +31,30 @@
     <source src="/assets/music/2.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
   </audio>
+  <audio id="q1" controls>
+    <source src="/assets/clip/q1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
   <div class="control-row">
     <button class ="control" id="start">Start</button>
     <button class ="control" id="pause">Pause</button>
     <button class ="vol" id="voldown"><-</button>
     <button class ="vol" id ="volup">-></button>
   </div>
+  <div class="question-block">
+    <div class="question">
+      Would you like to hear about my early life?
+      <div class="button-row">
+        <button class="b1">Sure!</button>
+        <button class="b1">No, thanks.</button>
+      </div>
+    </div>
+
+  </div>
 </div>
-  
-  
+
+
 <script src="/assets/js/jquery-2.1.4.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
@@ -108,6 +121,9 @@ $("#intro").on("ended", function() {
   mid.volume = 0.2;
   setTimeout(function(){ vid.play(); }, 3000);
   vid.volume = 1;
+
+  // question show up
+  $(".question-block").fadeIn();
 });
 
 // music loop
@@ -116,7 +132,14 @@ $("#mid").on("ended", function() {
   mid.play();
 });
 
-// first question show up
+$("#vid").on("ended", function() {
+  var mid = document.getElementById("q1");
+  q1.play();
+  // question show up
+  $(".question-block").css({"z-index": "2147483647"})
+  $(".question-block").fadeIn();
+
+});
 
 
 
