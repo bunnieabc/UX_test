@@ -76,8 +76,8 @@
     <div class="question">
      Would you like to hear about the Vigilance Committee and the Underground Railroad?
       <div class="button-row">
-        <button class="b1" id ="yes2">Sure!</button>
-        <button class="b1" id ="no2">No, thanks.</button>
+        <button class="b1" id ="yes3">Sure!</button>
+        <button class="b1" id ="no3">No, thanks.</button>
       </div>
     </div>
   </div>
@@ -195,6 +195,7 @@ $("#yes1").click(function(){
   
   document.getElementById("vid").load();
   document.getElementById("vid").play();
+  toggleFullScreen()
   console.log(document.querySelector("#vid > source").src)
 })
 
@@ -205,9 +206,20 @@ $("#yes2").click(function(){
   
   document.getElementById("vid").load();
   document.getElementById("vid").play();
+  toggleFullScreen()
   console.log(document.querySelector("#vid > source").src)
 })
 
+//select "Yes" -> continue the vid4
+$("#yes3").click(function(){
+  $(".question-block3").css("display","none");
+  document.querySelector("#vid > source").src = "/assets/video/4.mp4"
+  
+  document.getElementById("vid").load();
+  document.getElementById("vid").play();
+  toggleFullScreen()
+  console.log(document.querySelector("#vid > source").src)
+})
 
 </script>
 </html>

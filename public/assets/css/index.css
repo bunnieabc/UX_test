@@ -105,6 +105,7 @@ h1, h2, h3, h4 {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 20px;
+  text-align: center;
 }
 
 .question-block .button-row, .question-block2 .button-row, .question-block3 .button-row {
