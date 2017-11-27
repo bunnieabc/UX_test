@@ -20,7 +20,7 @@
 <div class="wrap2">
   
   <video id="vid" controls>
-    <source  src="/assets/video/1.mp4" type="video/mp4" >
+    <source  src="https://s3.us-east-2.amazonaws.com/uxproject/1.mp4" type="video/mp4" >
     Your browser does not support the video tag.
   </video>
   <audio id="intro" controls>
@@ -191,7 +191,7 @@ $("#vid").on("ended", function() {
 // select "Yes" -> continue the vid2
 $("#yes1").click(function(){
   $(".question-block").css("display","none");
-  document.querySelector("#vid > source").src = "/assets/video/2.mp4"
+  document.querySelector("#vid > source").src = "https://s3.us-east-2.amazonaws.com/uxproject/2.mp4"
   
   document.getElementById("vid").load();
   document.getElementById("vid").play();
@@ -202,7 +202,7 @@ $("#yes1").click(function(){
 //select "Yes" -> continue the vid3
 $("#yes2").click(function(){
   $(".question-block2").css("display","none");
-  document.querySelector("#vid > source").src = "/assets/video/3.mp4"
+  document.querySelector("#vid > source").src = "https://s3.us-east-2.amazonaws.com/uxproject/3.mp4"
   
   document.getElementById("vid").load();
   document.getElementById("vid").play();
@@ -213,7 +213,7 @@ $("#yes2").click(function(){
 //select "Yes" -> continue the vid4
 $("#yes3").click(function(){
   $(".question-block3").css("display","none");
-  document.querySelector("#vid > source").src = "/assets/video/4.mp4"
+  document.querySelector("#vid > source").src = "https://s3.us-east-2.amazonaws.com/uxproject/4.mp4"
   
   document.getElementById("vid").load();
   document.getElementById("vid").play();
