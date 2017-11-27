@@ -28,7 +28,7 @@
   <source src="/assets/clip/1.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
-<audio id="aid" controls>
+<audio id="mid" controls>
   <source src="/assets/music/2.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
@@ -92,8 +92,15 @@ function toggleFullScreen() {
   }
 }
 
+
+$("#intro").on("ended", function() {
+  var mid = document.getElementById("mid");
+  mid.play();
+  mid.volume = 0.3;
+  vid.volume = 1;
+});
+
 //aid.play();
-vid.volume = 0.5
 
 
 </script>
