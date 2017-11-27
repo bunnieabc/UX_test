@@ -36,6 +36,11 @@
   Your browser does not support the audio element.
   </audio>
 
+  <audio id="q2" controls>
+    <source src="/assets/clip/q2.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
   <div class="control-row">
     <button class ="control" id="start">Start</button>
     <button class ="control" id="pause">Pause</button>
@@ -50,7 +55,16 @@
         <button class="b1" id ="no1">No, thanks.</button>
       </div>
     </div>
+  </div>
 
+  <div class="question-block2">
+    <div class="question">
+      Would you like to hear about my initial involvement with the anti-slavery movement?
+      <div class="button-row">
+        <button class="b1" id ="yes2">Sure!</button>
+        <button class="b1" id ="no2">No, thanks.</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -61,7 +75,7 @@
 <script>
 var vid = document.getElementById("vid");
 //var level = 50;
-
+var count = 0;
 
 // volume and pause, start control
 var intro = document.getElementById("intro");
@@ -134,11 +148,21 @@ $("#mid").on("ended", function() {
 
 // self-intro end
 $("#vid").on("ended", function() {
-  var mid = document.getElementById("q1");
-  q1.play();
-  // question show up
-  $(".question-block").css({"z-index": "2147483647"})
-  $(".question-block").fadeIn();
+  if(count == 0){
+    var q1 = document.getElementById("q1");
+    q1.play();
+    // question show up
+    $(".question-block").css({"z-index": "2147483647"})
+    $(".question-block").fadeIn();
+  }
+  else if(count == 1) {
+    var q2 = document.getElementById("q2");
+    q2.play();
+    // question show up
+    $(".question-block2").css({"z-index": "2147483647"})
+    $(".question-block2").fadeIn();
+  }
+  count = count + 1;
 });
 
 // select "Yes" -> continue the vid2
