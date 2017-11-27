@@ -18,26 +18,30 @@
 <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Montserrat|Raleway" rel="stylesheet">
 </head>
 <div class="wrap2">
-
-<video id="vid" controls>
-  <source  src="/assets/video/1.mp4" type="video/mp4" >
-  Your browser does not support the video tag.
+  <div class="question-block">
+    
+  </div>
+  <video id="vid" controls>
+    <source  src="/assets/video/1.mp4" type="video/mp4" >
+    Your browser does not support the video tag.
+  </video>
+  <audio id="intro" controls>
+    <source src="/assets/clip/1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+  <audio id="mid" controls>
+    <source src="/assets/music/2.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+  <div class="control-row">
+    <button class ="control" id="start">Start</button>
+    <button class ="control" id="pause">Pause</button>
+    <button class ="vol" id="voldown"><-</button>
+    <button class ="vol" id ="volup">-></button>
+  </div>
 </div>
-</video>
-<audio id="intro" controls>
-  <source src="/assets/clip/1.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<audio id="mid" controls>
-  <source src="/assets/music/2.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<div class="control-row">
-  <button class ="control" id="start">Start</button>
-  <button class ="control" id="pause">Pause</button>
-  <button class ="vol" id="voldown"><-</button>
-  <button class ="vol" id ="volup">-></button>
-</div>
+  
+  
 <script src="/assets/js/jquery-2.1.4.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
@@ -45,6 +49,8 @@ Your browser does not support the audio element.
 var vid = document.getElementById("vid");
 //var level = 50;
 
+
+// volume and pause, start control
 var intro = document.getElementById("intro");
 $("#start").click(function(){
   intro.play();
@@ -92,15 +98,26 @@ function toggleFullScreen() {
   }
 }
 
+// intro end
+// music and introduction show up
+// first question show up
 
 $("#intro").on("ended", function() {
   var mid = document.getElementById("mid");
   mid.play();
-  mid.volume = 0.3;
+  mid.volume = 0.2;
+  setTimeout(function(){ vid.play(); }, 3000);
   vid.volume = 1;
 });
 
-//aid.play();
+// music loop
+$("#mid").on("ended", function() {
+  
+  mid.play();
+});
+
+// first question show up
+
 
 
 </script>

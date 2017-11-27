@@ -22,7 +22,7 @@ h1, h2, h3, h4 {
   margin: 0;
 }
 
-.wrap, .wrap2 {
+.wrap {
   width: 100%;
   height: 100%;
   display: flex;
@@ -32,7 +32,24 @@ h1, h2, h3, h4 {
 }
 
 .wrap2 {
+  display: flex;
   background: #333;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.wrap2 video, .wrap2 audio {
+  width: 100%;
+}
+
+.wrap2 audio {
+  display: none;
 }
 
 #vid {
