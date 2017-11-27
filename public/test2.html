@@ -28,7 +28,7 @@
   Your browser does not support the audio element.
   </audio>
   <audio id="mid" controls>
-    <source src="/assets/music/2.mp3" type="audio/mpeg">
+    <source src="/assets/music/4.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
   </audio>
   <audio id="q1" controls>
@@ -46,6 +46,11 @@
   Your browser does not support the audio element.
   </audio>
 
+  <audio id="end" controls>
+    <source src="/assets/clip/end.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
   <div class="control-row">
     <button class ="control" id="start">Start</button>
     <button class ="control" id="pause">Pause</button>
@@ -54,30 +59,70 @@
   </div>
   <div class="question-block">
     <div class="question">
-      Would you like to hear about my early life?
-      <div class="button-row">
-        <button class="b1" id ="yes1">Sure!</button>
-        <button class="b1" id ="no1">No, thanks.</button>
+      <div class="ques-in">
+        Would you like to hear about my early life?
+        <div class="button-row">
+          <button class="b1" id ="yes1">Sure!</button>
+          <button class="b1" id ="no1">No, thanks.</button>
+        </div>
+      </div>
+      <div class="ques-in">
+        Would you like to hear about my early life?
+        <div class="button-row">
+          <button class="b1" id ="yes1">Sure!</button>
+          <button class="b1" id ="no1">No, thanks.</button>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="question-block2">
     <div class="question">
-      Would you like to hear about my initial involvement with the anti-slavery movement?
-      <div class="button-row">
-        <button class="b1" id ="yes2">Sure!</button>
-        <button class="b1" id ="no2">No, thanks.</button>
+      <div class="ques-in">
+        Would you like to hear about my initial involvement with the anti-slavery movement?
+        <div class="button-row">
+          <button class="b1" id ="yes2">Sure!</button>
+          <button class="b1" id ="no2">No, thanks.</button>
+        </div>
+      </div>
+      <div class="ques-in">
+        Would you like to hear about my initial involvement with the anti-slavery movement?
+        <div class="button-row">
+          <button class="b1" id ="yes2">Sure!</button>
+          <button class="b1" id ="no2">No, thanks.</button>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="question-block3">
     <div class="question">
-     Would you like to hear about the Vigilance Committee and the Underground Railroad?
-      <div class="button-row">
-        <button class="b1" id ="yes3">Sure!</button>
-        <button class="b1" id ="no3">No, thanks.</button>
+      <div class="ques-in">
+       Would you like to hear about the Vigilance Committee and the Underground Railroad?
+        <div class="button-row">
+          <button class="b1" id ="yes3">Sure!</button>
+          <button class="b1" id ="no3">No, thanks.</button>
+        </div>
+      </div>
+      <div class="ques-in">
+       Would you like to hear about the Vigilance Committee and the Underground Railroad?
+        <div class="button-row">
+          <button class="b1" id ="yes3">Sure!</button>
+          <button class="b1" id ="no3">No, thanks.</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="end-block">
+    <div class="ques-in">
+      <div class="question">
+       Thank you for visiting 227 Duffield St Museum!
+      </div>
+    </div>
+    <div class="ques-in">
+      <div class="question">
+       Thank you for visiting 227 Duffield St Museum!
       </div>
     </div>
   </div>
@@ -147,7 +192,7 @@ function toggleFullScreen() {
 $("#intro").on("ended", function() {
   var mid = document.getElementById("mid");
   mid.play();
-  mid.volume = 0.2;
+  mid.volume = 0.3;
   setTimeout(function(){ vid.play(); }, 3000);
   vid.volume = 1;
 
@@ -184,6 +229,10 @@ $("#vid").on("ended", function() {
     // question show up
     $(".question-block3").css({"z-index": "2147483647"})
     $(".question-block3").fadeIn();
+  }
+  else if(count ==3) {
+    var end = document.getElementById("end");
+    end.play();
   }
   count = count + 1;
 });

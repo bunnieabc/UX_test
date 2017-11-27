@@ -75,7 +75,7 @@ h1, h2, h3, h4 {
   color: #FFF;
 }
 
-.question-block, .question-block2, .question-block3 {
+.question-block, .question-block2, .question-block3, .end-block {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -89,12 +89,12 @@ h1, h2, h3, h4 {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  font-size: 26px;
+  font-size: 20px;
   color: #FFF;
   display: none;
 }
 
-.question-block .question, .question-block2 .question, .question-block3 .question {
+.question-block .question, .question-block2 .question, .question-block3 .question, .end-block .question {
   width: 100%;
   height: 100%;
   display: flex;
@@ -104,26 +104,32 @@ h1, h2, h3, h4 {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 12%;
   text-align: center;
 }
 
-.question-block .button-row, .question-block2 .button-row, .question-block3 .button-row {
+.question-block .ques-in, .question-block2 .ques-in, .question-block3 .ques-in, .end-block .ques-in {
+  width: 45%;
+  padding: 7%;
+}
+
+.question-block .button-row, .question-block2 .button-row, .question-block3 .button-row, .end-block .button-row {
   width: 100%;
   display: flex;
   align-items: center;
   -webkit-justify-content: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-top: 10%;
 }
 
-.question-block .b1, .question-block2 .b1, .question-block3 .b1 {
-  width: 170px;
-  height: 50px;
+.question-block .b1, .question-block2 .b1, .question-block3 .b1, .end-block .b1 {
+  width: 120px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.25);
   color: #FFF;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   outline: none;
 }
 
