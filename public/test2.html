@@ -46,8 +46,8 @@
     <div class="question">
       Would you like to hear about my early life?
       <div class="button-row">
-        <button class="b1">Sure!</button>
-        <button class="b1">No, thanks.</button>
+        <button class="b1" id ="yes1">Sure!</button>
+        <button class="b1" id ="no1">No, thanks.</button>
       </div>
     </div>
 
@@ -111,7 +111,7 @@ function toggleFullScreen() {
   }
 }
 
-// intro end
+// usage-intro end
 // music and introduction show up
 // first question show up
 
@@ -132,14 +132,24 @@ $("#mid").on("ended", function() {
   mid.play();
 });
 
+// self-intro end
 $("#vid").on("ended", function() {
   var mid = document.getElementById("q1");
   q1.play();
   // question show up
   $(".question-block").css({"z-index": "2147483647"})
   $(".question-block").fadeIn();
-
 });
+
+// select "Yes" -> continue the vid2
+$("#yes1").click(function(){
+  $(".question-block").css("display","none");
+  document.querySelector("#vid > source").src = "/assets/video/2.mp4"
+  
+  document.getElementById("vid").load();
+  document.getElementById("vid").play();
+  console.log(document.querySelector("#vid > source").src)
+})
 
 
 
