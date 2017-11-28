@@ -115,14 +115,12 @@
   </div>
 
   <div class="end-block">
-    <div class="ques-in">
-      <div class="question">
+    <div class="question">
+      <div class="ques-in">
        Thank you for visiting 227 Duffield St Museum!
       </div>
-    </div>
-    <div class="ques-in">
-      <div class="question">
-       Thank you for visiting 227 Duffield St Museum!
+      <div class="ques-in">
+         Thank you for visiting 227 Duffield St Museum!
       </div>
     </div>
   </div>
@@ -233,6 +231,8 @@ $("#vid").on("ended", function() {
   else if(count ==3) {
     var end = document.getElementById("end");
     end.play();
+    $(".end-block").css({"z-index": "2147483647"})
+    $(".end-block").fadeIn();
   }
   count = count + 1;
 });
