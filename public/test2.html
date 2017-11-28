@@ -144,7 +144,8 @@ $("#start").click(function(){
 })
 $("#pause").click(function(){
   intro.pause();
-  intro.volume = 1;
+  //intro.volume = 1;
+  vid.pause();
 })
 
 $("#voldown").click(function(){
@@ -156,11 +157,29 @@ $("#voldown").click(function(){
     $("#voldown").html("mute")
     $("#volup").html("->")
   }
+
+  if(vid.volume >= 0.3){
+    vid.volume = intro.volume - 0.3;
+    $("#volup").html("->")
+  }
+  else{
+    $("#voldown").html("mute")
+    $("#volup").html("->")
+  }
 })
 
 $("#volup").click(function(){
   if(intro.volume <= 0.7){
     intro.volume = intro.volume + 0.3;
+    $("#voldown").html("<-")
+  }
+  else{
+    $("#volup").html("max")
+    $("#voldown").html("<-")
+  }
+
+  if(vid.volume <= 0.7){
+    vid.volume = intro.volume + 0.3;
     $("#voldown").html("<-")
   }
   else{
