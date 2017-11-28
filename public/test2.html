@@ -170,7 +170,7 @@ $("#voldown").click(function(){
   }
 
   if(vid.volume >= 0.3){
-    vid.volume = intro.volume - 0.3;
+    vid.volume = vid.volume - 0.3;
     $("#volup").html("->")
   }
   else{
@@ -190,7 +190,7 @@ $("#volup").click(function(){
   }
 
   if(vid.volume <= 0.7){
-    vid.volume = intro.volume + 0.3;
+    vid.volume = vid.volume + 0.3;
     $("#voldown").html("<-")
   }
   else{
