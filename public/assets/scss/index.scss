@@ -86,7 +86,7 @@ h1,h2,h3,h4 {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   
-  font-size: 18px;
+  font-size: 16px;
   color: #FFF;
   display: none;
   
@@ -120,12 +120,12 @@ h1,h2,h3,h4 {
   }
 
   .b1 {
-    width: 120px;
-    height: 40px;
+    padding: 8px 20px;
+    
     background: rgba(255,255,255,0.25);
     color: #FFF;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
     outline: none;
   }
   //animation: question 1s 1 linear both;
