@@ -81,15 +81,15 @@
       <div class="ques-in">
         Would you like to hear about my initial involvement with the anti-slavery movement?
         <div class="button-row">
-          <button class="b1" id ="yes2">Sure!</button>
-          <button class="b1" id ="no2">No, thank you.</button>
+          <button class="b1 yes" id ="yes2">Sure!</button>
+          <button class="b1 no" id ="no2">No, thank you.</button>
         </div>
       </div>
       <div class="ques-in">
         Would you like to hear about my initial involvement with the anti-slavery movement?
         <div class="button-row">
-          <button class="b1" id ="yes2">Sure!</button>
-          <button class="b1" id ="no2">No, thank you.</button>
+          <button class="b1 yes" id ="yes2">Sure!</button>
+          <button class="b1 no" id ="no2">No, thank you.</button>
         </div>
       </div>
     </div>
@@ -100,15 +100,15 @@
       <div class="ques-in">
        Would you like to hear about the Vigilance Committee and the Underground Railroad?
         <div class="button-row">
-          <button class="b1" id ="yes3">Sure!</button>
-          <button class="b1" id ="no3">No, thank you.</button>
+          <button class="b1 yes" id ="yes3">Sure!</button>
+          <button class="b1 no" id ="no3">No, thank you.</button>
         </div>
       </div>
       <div class="ques-in">
        Would you like to hear about the Vigilance Committee and the Underground Railroad?
         <div class="button-row">
-          <button class="b1" id ="yes3">Sure!</button>
-          <button class="b1" id ="no3">No, thank you.</button>
+          <button class="b1 yes" id ="yes3">Sure!</button>
+          <button class="b1 no" id ="no3">No, thank you.</button>
         </div>
       </div>
     </div>
@@ -219,6 +219,7 @@ $("#vid").on("ended", function() {
     // question show up
     $(".question-block2").css({"z-index": "2147483647"})
     $(".question-block2").fadeIn();
+    console.log("end number: ", count)
   }
 
   else if(count == 2) {
@@ -301,6 +302,102 @@ $("#no3").click(function(){
   count = count + 1;
 })
 
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'yes': function() {
+      if(count == 1){
+        $('#yes1').click();
+      }
+      else if(count == 2){
+        $('#yes2').click();
+      }
+      else if(count == 3){
+        $('#yes3').click();
+      }
+      console.log("yes: ", count)
+    },
+    'ok': function() {
+      if(count == 1){
+        $('#yes1').click();
+      }
+      else if(count == 2){
+        $('#yes2').click();
+      }
+      else if(count == 3){
+        $('#yes3').click();
+      }
+      console.log("yes: ", count)
+    },
+    'sure': function() {
+      if(count == 1){
+        $('#yes1').click();
+      }
+      else if(count == 2){
+        $('#yes2').click();
+      }
+      else if(count == 3){
+        $('#yes3').click();
+      }
+      console.log("yes: ", count)
+    },
+    'no thank you': function() {
+     if(count == 1){
+        $('#no1').click();
+      }
+      else if(count == 2){
+        $('#no2').click();
+      }
+      else if(count == 3){
+        $('#no3').click();
+      }
+    }
+    ,
+    'no way': function() {
+     if(count == 1){
+        $('#no1').click();
+      }
+      else if(count == 2){
+        $('#no2').click();
+      }
+      else if(count == 3){
+        $('#no3').click();
+      }
+    },
+    'no I dont': function() {
+     if(count == 1){
+        $('#no1').click();
+      }
+      else if(count == 2){
+        $('#no2').click();
+      }
+      else if(count == 3){
+        $('#no3').click();
+      }
+    },
+    'no thanks': function() {
+     if(count == 1){
+        $('#no1').click();
+      }
+      else if(count == 2){
+        $('#no2').click();
+      }
+      else if(count == 3){
+        $('#no3').click();
+      }
+    }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
+
+var yes_func = function() {
+  $('#greeting').text('Hello!');
+}
 
 </script>
 </html>
