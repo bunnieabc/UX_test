@@ -53,6 +53,7 @@
 
   <div class="control-row">
     <button class ="control" id="start">Start</button>
+    <button class ="control" id="continue">Continue</button>
     <button class ="control" id="pause">Pause</button>
     <button class ="vol" id="voldown"><-</button>
     <button class ="vol" id ="volup">-></button>
@@ -134,17 +135,28 @@
 var vid = document.getElementById("vid");
 //var level = 50;
 var count = 0;
-
+var intro_end = 0;
 // volume and pause, start control
 var intro = document.getElementById("intro");
 $("#start").click(function(){
   intro.play();
   intro.volume = 1;
   toggleFullScreen();
+  $("#start").click(false);
+  $("#start").css("opacity","0.3");
 })
+
+$("#continue").click(function(){
+  
+  if(intro_end == 0)intro.play();
+  else vid.play();
+  toggleFullScreen();
+})
+
 $("#pause").click(function(){
   intro.pause();
-  intro.volume = 1;
+  //intro.volume = 1;
+  vid.pause();
 })
 
 $("#voldown").click(function(){
@@ -156,11 +168,29 @@ $("#voldown").click(function(){
     $("#voldown").html("mute")
     $("#volup").html("->")
   }
+
+  if(vid.volume >= 0.3){
+    vid.volume = intro.volume - 0.3;
+    $("#volup").html("->")
+  }
+  else{
+    $("#voldown").html("mute")
+    $("#volup").html("->")
+  }
 })
 
 $("#volup").click(function(){
   if(intro.volume <= 0.7){
     intro.volume = intro.volume + 0.3;
+    $("#voldown").html("<-")
+  }
+  else{
+    $("#volup").html("max")
+    $("#voldown").html("<-")
+  }
+
+  if(vid.volume <= 0.7){
+    vid.volume = intro.volume + 0.3;
     $("#voldown").html("<-")
   }
   else{
@@ -195,7 +225,8 @@ $("#intro").on("ended", function() {
   vid.volume = 1;
 
   // question show up
-  $(".question-block").fadeIn();
+  //$(".question-block").fadeIn();
+  intro_end = 1;
 });
 
 // music loop
@@ -212,6 +243,7 @@ $("#vid").on("ended", function() {
     // question show up
     $(".question-block").css({"z-index": "2147483647"})
     $(".question-block").fadeIn();
+    console.log("?")
   }
   else if(count == 1) {
     var q2 = document.getElementById("q2");
@@ -219,7 +251,6 @@ $("#vid").on("ended", function() {
     // question show up
     $(".question-block2").css({"z-index": "2147483647"})
     $(".question-block2").fadeIn();
-    console.log("end number: ", count)
   }
 
   else if(count == 2) {
@@ -385,6 +416,23 @@ if (annyang) {
       else if(count == 3){
         $('#no3').click();
       }
+    },
+    'pause': function() {
+      $("#pause").click()
+    },
+    'speak softer': function() {
+      $("#voldown").click()
+      console.log("soft")
+    },
+    'speak louder': function() {
+      $("#volup").click()
+      console.log("loud")
+    },
+    'continue': function() {
+      $("#continue").click()
+    },
+    'start': function() {
+      $("#start").click()
     }
   };
 

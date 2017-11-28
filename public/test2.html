@@ -53,6 +53,7 @@
 
   <div class="control-row">
     <button class ="control" id="start">Start</button>
+    <button class ="control" id="continue">Continue</button>
     <button class ="control" id="pause">Pause</button>
     <button class ="vol" id="voldown"><-</button>
     <button class ="vol" id ="volup">-></button>
@@ -134,14 +135,24 @@
 var vid = document.getElementById("vid");
 //var level = 50;
 var count = 0;
-
+var intro_end = 0;
 // volume and pause, start control
 var intro = document.getElementById("intro");
 $("#start").click(function(){
   intro.play();
   intro.volume = 1;
   toggleFullScreen();
+  $("#start").click(false);
+  $("#start").css("opacity","0.3");
 })
+
+$("#continue").click(function(){
+  
+  if(intro_end == 0)intro.play();
+  else vid.play();
+  toggleFullScreen();
+})
+
 $("#pause").click(function(){
   intro.pause();
   //intro.volume = 1;
@@ -215,6 +226,7 @@ $("#intro").on("ended", function() {
 
   // question show up
   $(".question-block").fadeIn();
+  intro_end = 1;
 });
 
 // music loop
