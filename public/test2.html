@@ -256,7 +256,6 @@ $("#yes2").click(function(){
   document.getElementById("vid").load();
   document.getElementById("vid").play();
   toggleFullScreen()
-  console.log(document.querySelector("#vid > source").src)
 })
 
 //select "Yes" -> continue the vid4
@@ -267,8 +266,41 @@ $("#yes3").click(function(){
   document.getElementById("vid").load();
   document.getElementById("vid").play();
   toggleFullScreen()
-  console.log(document.querySelector("#vid > source").src)
 })
+
+// select "No1" -> to question 2
+$("#no1").click(function(){
+  $(".question-block").css("display","none");
+  var q2 = document.getElementById("q2");
+  q2.play();
+  // question show up
+  $(".question-block2").css({"z-index": "2147483647"})
+  $(".question-block2").fadeIn();
+  count = count + 1;
+})
+
+// select "No2" -> to question 3
+$("#no2").click(function(){
+  $(".question-block2").css("display","none");
+  var q3 = document.getElementById("q3");
+  q3.play();
+  // question show up
+  $(".question-block3").css({"z-index": "2147483647"})
+  $(".question-block3").fadeIn();
+  count = count + 1;
+})
+
+// select "No3" -> to question 4
+$("#no3").click(function(){
+  $(".question-block3").css("display","none");
+  var end = document.getElementById("end");
+  end.play();
+  // question show up
+  $(".end-block").css({"z-index": "2147483647"})
+  $(".end-block").fadeIn();
+  count = count + 1;
+})
+
 
 </script>
 </html>
